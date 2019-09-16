@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="col-mp-12 margin-top article-block-show">
+      <% if @article.image_id.present? %>
+        <%= image_tag attachment_url(@article, :image,),class: 'article-image padding-top' ,class: 'show-image' %>
+      <% end %>
+    <h1 class="text-center"><%= @article.title %></h1>
+      <%= simple_format @article.body %>
+      
+      <p class="text-right">
+        <%= @article.created_at.strftime("%Y年%m月%d日")%>
+      </p>
+    </div>
+    <%= link_to '編集ボタン', edit_article_path(@article), class: 'btn btn-primary', style: 'margin: 10px:margin-right: 10px' %>
+    <%= link_to '削除ボタン', article_path(@article), method: :delete, data: {confirm: 'ホンマに消すん？'},class: 'btn btn-danger', style: 'margin: 10px' %>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+<%= form_for(@article) do |f| %>
+      <div class="form-group padding-top">
+      <%= f.attachment_field :image %>
+      </div>
+      <div class="form-group padding-top">
+        <%= f.label :title, 'タイトル'%>
+        <%= f.text_field :title,class: "form-control"%>
+      </div>
+      <div class="form-group padding-top">
+      <%= f.label :body, '本文'%>
+        <%= f.text_area :body, rows: 10 ,class: "form-control"%>
+      </div>    
+      <%= f.submit 'ラーメン愛を世界に発信しよう！',class: 'btn btn-success'%>
+      <% end %>

@@ -1,0 +1,20 @@
+<div class="container">
+  <% @articles.each do |article| %>
+    <%= link_to article do %>
+      <div class="col-mp-4 margin-top article-block">
+        <% if article.image_id.present?%>
+          <%= image_tag attachment_url(article, :image), class: 'img-responsive padding-top '%>
+        <% else %>
+          <%= image_tag 'ra-men.jpg', class: 'img-responsive padding-top' %>
+        <% end %>
+        <div>
+          <p class="title"><%= article.title %><p>
+          <span>
+          <%= article.created_at.strftime("%Y年%m月%d日")%>
+        </span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <%= link_to 'ラーメンの思い出をかく', new_article_path, class: 'margin-top btn-primary' %>
+</div>

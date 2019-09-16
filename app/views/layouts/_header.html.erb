@@ -1,0 +1,29 @@
+<nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <% if user_signed_in? %>
+              <a class="navbar-brand" href="/">ラーメン日記・<%= current_user.name %>さんがログイン中</a>
+            <% else %>
+              <a class="navbar-brand" href="/">みんなのラーメンにっき</a>
+            <% end %>  
+          </div>
+          <div class="collapse navbar-collapse" id="navigation">
+            <p class="navbar-text navbar-right">
+               <% if user_signed_in? %>
+                 <%= link_to '今日のラーメンの思い出をかく', new_article_path %>
+                 &nbsp;
+                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+               <% else %>
+                 <%= link_to 'とーろく', new_user_registration_path %>
+                 &nbsp;
+                 <%= link_to 'ろぐいん', new_user_session_path %>
+               <% end %> 
+          </p>
+        </div>
+        </div>
+      </nav>
